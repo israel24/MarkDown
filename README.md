@@ -1,50 +1,50 @@
 #Linux
 ##1. Logs del Sistema
-• Introducción a syslog
-• Configuraciones avanzadas de syslog
-• Rotación de logs
-• Herramientas de logs
+* Introducción a syslog
+* Configuraciones avanzadas de syslog
+* Rotación de logs
+* Herramientas de logs
 ##2. Administrar Usuarios y Grupos
-• Comandos para gestionar cuentas de usuarios, grupos y contraseña
-• Archivos de usuarios y grupos
-• Herramientas de usuarios y grupos y delegación de privilegios
-• Auditoría y límites de usuarios y grupos
+* Comandos para gestionar cuentas de usuarios, grupos y contraseña
+* Archivos de usuarios y grupos
+* Herramientas de usuarios y grupos y delegación de privilegios
+* Auditoría y límites de usuarios y grupos
 ##3. Administrar Tareas Programadas y Configuración Regional
-• Tareas programadas en Linux con cron
-• Tareas programadas con anacron y con at
-• Zonas horarias y fechas
-• Configuración Regional
+* Tareas programadas en Linux con cron
+* Tareas programadas con anacron y con at
+* Zonas horarias y fechas
+* Configuración Regional
 ##4. Mantener el Reloj del Sistema e Impresión
-• Administrando la hora del equipo
-• El daemon NTP en Linux
-• Introducción a CUPS
-• Trabajando con impresoras desde CUPS
+* Administrando la hora del equipo
+* El daemon NTP en Linux
+* Introducción a CUPS
+* Trabajando con impresoras desde CUPS
 ##5. X Windows System
-• Instalación y configuración de X
-• Configurar un administrador de pantalla
-• Configurar el administrador de pantalla para ser usado con estaciones-X.
-• Accesibilidad
+* Instalación y configuración de X
+* Configurar un administrador de pantalla
+* Configurar el administrador de pantalla para ser usado con estaciones-X.
+* Accesibilidad
 ##6. Cifrado con GPG y Compilación
-• Cifrar y firmar con GPG
-• Cifrar archivos
-• El kernel Linux
-• Compilación del kernel
-• Instalación de programas a partir del código fuente
+* Cifrar y firmar con GPG
+* Cifrar archivos
+* El kernel Linux
+* Compilación del kernel
+* Instalación de programas a partir del código fuente
 ##7. Linux Servicios
-• Familia de protocolos TCP-IP.
-• Configuración de HW de red.
-• Acceso a redes : PPP.
-• Configuración de una LAN.
-• Demonios y el superservidor de internet (inetd, xinetd).
-• Servicios de acceso : Telnet / SSH.
-• Servicios de transferencia de ficheros : FTP /SFTP/ SCP.
-• Servicio de resolución de nombres : DNS.
-• Servicios de compartición de ficheros e impresoras: NFS, Samba.
-• Servicio de correo : SMTP.
-• Servicios web : HTTP (Apache).
-• Servicio de news.
-• Servicio de IRC.
-• Instalación de colas de trabajo : NQS.
+* Familia de protocolos TCP-IP.
+* Configuración de HW de red.
+* Acceso a redes : PPP.
+* Configuración de una LAN.
+* Demonios y el superservidor de internet (inetd, xinetd).
+* Servicios de acceso : Telnet / SSH.
+* Servicios de transferencia de ficheros : FTP /SFTP/ SCP.
+* Servicio de resolución de nombres : DNS.
+* Servicios de compartición de ficheros e impresoras: NFS, Samba.
+* Servicio de correo : SMTP.
+* Servicios web : HTTP (Apache).
+* Servicio de news.
+* Servicio de IRC.
+* Instalación de colas de trabajo : NQS.
 
 
 
@@ -139,23 +139,30 @@ nginx -v
 #Servidor
 
 Texto a añadir en **/etc/apt/sources.list**
-`deb http://packages.dotdeb.org jessie all
-deb-src http://packages.dotdeb.org jessie all`
-Borrar apache2
-`apt-get remove --purge apache2*
+```
+deb http://packages.dotdeb.org jessie all
+deb-src http://packages.dotdeb.org jessie all
+```
+Borrar apache2 e instalar nginx
+```
+apt-get remove --purge apache2*
 wget https://www.dotdeb.org/dotdeb.gpg
 apt-key add dotdeb.gpg
 apt-get update && apt-get upgrade
 apt-get dist-upgrade
 apt-get install nginx
-nginx -v`
+nginx -v
+```
 
 Instalaciónde php7
-`apt-get install php7.0 php7.0-mysql php7.0-xmlrpc php7.0-cgi php7.0-curl php7.0-gd php7.0-fpm php7.0-apc php7.0-dev php7.0-mcrypt
+```console
+apt-get install php7.0 php7.0-mysql php7.0-xmlrpc php7.0-cgi php7.0-curl php7.0-gd php7.0-fpm php7.0-apc php7.0-dev php7.0-mcrypt
 service nginx restart
-service php7.0-fpm restart`
+service php7.0-fpm restart
+```
 Texto a añadir en **/etc/nginx/nginx.conf**:
-`user www-data;
+```apache
+user www-data;
 worker_processes 4;
 pid /run/nginx.pid;
 events {
@@ -224,4 +231,5 @@ Texto a añadir en **/etc/nginx/sites-available/default**:
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
     }
-}`
+}
+```
