@@ -46,11 +46,11 @@
 * Servicio de IRC.
 * Instalación de colas de trabajo : NQS.
 
-#Creatubers
+# Creatubers
 Publicado el 30 ene. 2017
 En este tutorial te enseño a instalar un certificado SSL en tu servidor web usando Certbot y Let's Encrypt. ¿Quieres aprender a configurar un servidor VPS para montar tu página web? Mira este tutorial:
 
-##Comandos y líneas de código:
+## Comandos y líneas de código:
 ```bash
 deb http://ftp.debian.org/debian jessie-backports main
 apt-get update && apt-get upgrade -y
@@ -78,8 +78,6 @@ server {
   try_files $uri $uri/ /index.php?q=$uri&$args;
  }
  
- 
-
     location ~ \.php$ {
         try_files $uri =404;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
@@ -112,14 +110,14 @@ crontab -e
 
 Equipo utilizado:
 
--Cámara: Panasonic Lumix GH4R
--Objetivo: Panasonic Lumix 25mm f/1.7
--Micrófono: Sony ECMCS3
--Grabadora de sonido: Zoom H1
--Iluminación: antorcha LED Yongnuo YN160 III 
+- Cámara: Panasonic Lumix GH4R
+- Objetivo: Panasonic Lumix 25mm f/1.7
+- Micrófono: Sony ECMCS3
+- Grabadora de sonido: Zoom H1
+- Iluminación: antorcha LED Yongnuo YN160 III 
 
 
-#Ejemplos de codigo
+# Ejemplos de codigo
 bash sh zsh shell Jekyll console apache
 html js python perl haskell gawk awk 
 
@@ -133,7 +131,7 @@ apt-get install nginx
 nginx -v
 ```
 
-#Servidor
+# Servidor
 
 Texto a añadir en **/etc/apt/sources.list**
 ```sh
@@ -162,10 +160,12 @@ Texto a añadir en **/etc/nginx/nginx.conf**:
 user www-data;
 worker_processes 4;
 pid /run/nginx.pid;
+
 events {
     worker_connections 768;
     # multi_accept on;
 }
+
 http {
     ##
     # Basic Settings
@@ -181,16 +181,19 @@ http {
     # server_name_in_redirect off;
     include /etc/nginx/mime.types;
     default_type application/octet-stream;
+    
     ##
     # SSL Settings
     ##
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # Dropping SSLv3, ref: POODLE
     ssl_prefer_server_ciphers on;
+    
     ##
     # Logging Settings
     ##
     access_log /var/log/nginx/access.log;
     error_log /var/log/nginx/error.log;
+
     ##
     # Gzip Settings
     ##
@@ -202,6 +205,7 @@ http {
     gzip_buffers 16 8k;
     gzip_http_version 1.1;
     gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+    
     ##
     # Virtual Host Configs
     ##
@@ -213,15 +217,19 @@ Texto a añadir en **/etc/nginx/sites-available/default**:
 ```apache
 server {
     listen 80 default;
+
     root /var/www/html;
     index index.php index.html index.htm;
+
     server_name nombre.com www.nombre.com;
+
     location / {
         # First attempt to serve request as file, then
         # as directory, then fall back to displaying a 404.
         #try_files $uri $uri/ =404;
         try_files $uri $uri/ /index.php?q=$uri&$args;
     }
+
     location ~ \.php$ {
         try_files $uri =404;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
