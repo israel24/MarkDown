@@ -139,12 +139,12 @@ nginx -v
 #Servidor
 
 Texto a añadir en **/etc/apt/sources.list**
-```
+```sh
 deb http://packages.dotdeb.org jessie all
 deb-src http://packages.dotdeb.org jessie all
 ```
 Borrar apache2 e instalar nginx
-```
+```bash
 apt-get remove --purge apache2*
 wget https://www.dotdeb.org/dotdeb.gpg
 apt-key add dotdeb.gpg
@@ -210,9 +210,11 @@ http {
     ##
     include /etc/nginx/conf.d/*.conf;
     include /etc/nginx/sites-enabled/*;
-}`
+}
+```
 Texto a añadir en **/etc/nginx/sites-available/default**:
-`server {
+```apache
+server {
     listen 80 default;
     root /var/www/html;
     index index.php index.html index.htm;
