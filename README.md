@@ -1,9 +1,9 @@
 #Linux
 ##1. Logs del Sistema
-*Introducción a syslog
-*Configuraciones avanzadas de syslog
-*Rotación de logs
-*Herramientas de logs
+- Introducción a syslog
+- Configuraciones avanzadas de syslog
+- Rotación de logs
+- Herramientas de logs
 ##2. Administrar Usuarios y Grupos
 * Comandos para gestionar cuentas de usuarios, grupos y contraseña
 * Archivos de usuarios y grupos
