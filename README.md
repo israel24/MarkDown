@@ -1,2 +1,2 @@
-#Linux
-##1. Logs del Sistema
+# Linux
+## 1. Logs del Sistema
